@@ -92,8 +92,10 @@
       recordings = (await Promise.all(recordingPromises))
         .filter(Boolean)
         .sort(
-          (a: { date: string | number | Date }, b: { date: string | number | Date }) =>
-            new Date(b.date).getTime() - new Date(a.date).getTime()
+          (
+            a: { date: string | number | Date },
+            b: { date: string | number | Date }
+          ) => new Date(b.date).getTime() - new Date(a.date).getTime()
         );
     } catch (error) {
       console.error("Error loading recordings:", error);
@@ -117,7 +119,6 @@
 
       recorder.addEventListener("stop", async () => {
         const blob = new Blob(chunks, { type: "audio/wav" });
-
 
         const recordingDuration = recordingStartTime
           ? (Date.now() - recordingStartTime) / 1000
@@ -377,38 +378,34 @@
   <h1 class="text-3xl font-bold mb-6 text-center text-black">مسجل صوت</h1>
 
   <!-- Record buttons component -->
-  <RecordButtons 
-    {startRecording} 
-    {stopRecording} 
-    {isRecording} 
-  />
+  <RecordButtons {startRecording} {stopRecording} {isRecording} />
 
   <!-- Audio player component -->
-  <AudioPlayer 
-    {currentRecording} 
-    bind:seekerElement 
-    {updateCurrentTime} 
-    {duration} 
-    {currentTime} 
-    {formatTime} 
-    {togglePlay} 
-    {isPlaying} 
-    {toggleRepeat} 
-    {repeat} 
-    {playbackRate} 
-    {changePlaybackRate} 
-    {skip} 
+  <AudioPlayer
+    {currentRecording}
+    bind:seekerElement
+    {updateCurrentTime}
+    {duration}
+    {currentTime}
+    {formatTime}
+    {togglePlay}
+    {isPlaying}
+    {toggleRepeat}
+    {repeat}
+    {playbackRate}
+    {changePlaybackRate}
+    {skip}
     {downloadRecording}
   />
 
   <!-- Recordings list component -->
-  <RecordingsList 
-    {loading} 
-    {recordings} 
+  <RecordingsList
+    {loading}
+    {recordings}
     {currentRecording}
-    {setCurrentRecording} 
-    {renameRecording} 
-    {deleteRecording} 
+    {setCurrentRecording}
+    {renameRecording}
+    {deleteRecording}
     {formatTime}
   />
 </main>

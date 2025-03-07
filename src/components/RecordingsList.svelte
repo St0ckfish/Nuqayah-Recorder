@@ -22,11 +22,18 @@
           <div class="flex-1 min-w-0">
             <button
               on:click={() => setCurrentRecording(recording)}
-              class="block w-full text-left cursor-pointer focus:outline-none {currentRecording?.id === recording.id ? 'text-blue-600 font-medium' : 'text-black'}"
+              class="block w-full text-left cursor-pointer focus:outline-none {currentRecording?.id ===
+              recording.id
+                ? 'text-blue-600 font-medium'
+                : 'text-black'}"
             >
               <div class="text-base">{recording.name}</div>
-              <div class="text-sm text-gray-500 flex items-center justify-between">
-                <span>{new Date(recording.date).toLocaleDateString("ar-SA")}</span>
+              <div
+                class="text-sm text-gray-500 flex items-center justify-between"
+              >
+                <span
+                  >{new Date(recording.date).toLocaleDateString("ar-SA")}</span
+                >
                 <span class="ml-2">{formatTime(recording.duration)}</span>
               </div>
             </button>
@@ -36,7 +43,10 @@
             <!-- svelte-ignore a11y_consider_explicit_label -->
             <button
               on:click={() => {
-                const newName = prompt("أدخل اسمًا جديدًا للتسجيل:", recording.name);
+                const newName = prompt(
+                  "أدخل اسمًا جديدًا للتسجيل:",
+                  recording.name
+                );
                 if (newName && newName.trim()) {
                   renameRecording(recording, newName.trim());
                 }

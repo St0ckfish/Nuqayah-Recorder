@@ -15,7 +15,11 @@
   export let downloadRecording: (recording: any) => void;
 </script>
 
-<div class="bg-white shadow-lg rounded-lg p-4 mb-8 { !currentRecording ? 'opacity-50 pointer-events-none' : '' }">
+<div
+  class="bg-white shadow-lg rounded-lg p-4 mb-8 {!currentRecording
+    ? 'opacity-50 pointer-events-none'
+    : ''}"
+>
   {#if currentRecording}
     <div class="flex justify-between items-center mb-2">
       <button
@@ -100,7 +104,9 @@
       <!-- svelte-ignore a11y_consider_explicit_label -->
       <button
         on:click={toggleRepeat}
-        class="w-16 h-16 rounded-full {repeat ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'} flex items-center justify-center focus:outline-none hover:bg-blue-100"
+        class="w-16 h-16 rounded-full {repeat
+          ? 'bg-blue-100 text-blue-600'
+          : 'bg-gray-100 text-gray-600'} flex items-center justify-center focus:outline-none hover:bg-blue-100"
       >
         <svg
           class="h-8 w-8"
@@ -146,7 +152,9 @@
         </svg>
       </button>
 
-      <div class="px-2 py-1 text-black text-sm bg-gray-100 rounded-md min-w-16 text-center">
+      <div
+        class="px-2 py-1 text-black text-sm bg-gray-100 rounded-md min-w-16 text-center"
+      >
         {playbackRate.toFixed(2)}x
       </div>
 

@@ -13,11 +13,7 @@
     title="سجل"
   >
     <svg viewBox="0 0 100 100" class="w-10 h-10">
-      <circle
-        cx="50"
-        cy="50"
-        r="46"
-        fill={isRecording ? "#f87171" : "#ef4444"}
+      <circle cx="50" cy="50" r="46" fill={isRecording ? "#f87171" : "#ef4444"}
       ></circle>
     </svg>
   </button>
