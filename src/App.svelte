@@ -30,7 +30,6 @@
   let loading = true;
   let recordingStartTime: number | null = null;
 
-  // Setup on component mount
   onMount(async () => {
     audio = new Audio();
     setupAudioListeners();
@@ -38,7 +37,6 @@
     loading = false;
   });
 
-  // Clean up on component destroy
   onDestroy(() => {
     if (recorder && isRecording) {
       stopRecording();
@@ -53,7 +51,6 @@
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
     }
 
-    // Revoke URLs for recordings
     recordings.forEach((recording) => {
       URL.revokeObjectURL(recording.url);
     });
@@ -377,10 +374,8 @@
 <main class="min-h-screen bg-gray-100 text-right p-4 md:p-6 font-kitab">
   <h1 class="text-3xl font-bold mb-6 text-center text-black">مسجل صوت</h1>
 
-  <!-- Record buttons component -->
   <RecordButtons {startRecording} {stopRecording} {isRecording} />
 
-  <!-- Audio player component -->
   <AudioPlayer
     {currentRecording}
     bind:seekerElement
@@ -398,7 +393,6 @@
     {downloadRecording}
   />
 
-  <!-- Recordings list component -->
   <RecordingsList
     {loading}
     {recordings}

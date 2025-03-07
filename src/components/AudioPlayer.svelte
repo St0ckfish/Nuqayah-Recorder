@@ -49,7 +49,6 @@
     </div>
   {/if}
 
-  <!-- Seeker -->
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
@@ -64,7 +63,6 @@
     ></div>
   </div>
 
-  <!-- Controls -->
   <div class="flex justify-between items-center mb-3">
     <div class="text-gray-600">{formatTime(currentTime)}</div>
 
@@ -130,7 +128,6 @@
   </div>
 
   <div class="flex justify-between items-center">
-    <!-- Speed controls -->
     <div class="flex items-center gap-1">
       <!-- svelte-ignore a11y_consider_explicit_label -->
       <button
@@ -179,7 +176,6 @@
       </button>
     </div>
 
-    <!-- Skip controls -->
     <div class="flex items-center gap-2">
       <button
         on:click={() => skip(15)}
