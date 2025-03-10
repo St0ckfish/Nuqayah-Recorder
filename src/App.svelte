@@ -99,11 +99,10 @@
     }
   }
 
-  // Start recording
   async function startRecording() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      recorder = new MediaRecorder(stream);
+      recorder = new MediaRecorder(stream, { mimeType: "video/mp4" });
 
       const chunks: BlobPart[] = [];
       recordingStartTime = Date.now();
@@ -115,7 +114,7 @@
       });
 
       recorder.addEventListener("stop", async () => {
-        const blob = new Blob(chunks, { type: "audio/wav" });
+        const blob = new Blob(chunks, { type: "video/mp4" });
 
         const recordingDuration = recordingStartTime
           ? (Date.now() - recordingStartTime) / 1000
@@ -260,7 +259,7 @@
     try {
       const a = document.createElement("a");
       a.href = recording.url;
-      a.download = `${recording.name}.wav`;
+      a.download = `${recording.name}.mp4`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
